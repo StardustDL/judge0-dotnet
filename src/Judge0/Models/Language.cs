@@ -2,7 +2,7 @@
 {
     public class Language
     {
-        public long id { get; set; }
+        public int id { get; set; }
 
         public string name { get; set; } = string.Empty;
     }
