@@ -31,26 +31,13 @@ jobs:
     - name: CI
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
+        Test_Server_Key: ${{ secrets.Test_Server_Key }}
       run: Invoke-psake ci -parameters @{ "NUGET_AUTH_TOKEN" = $env:NUGET_AUTH_TOKEN ; "build_version" = $env:build_version }
     - name: Upload reports
       uses: actions/upload-artifact@v2
       with:
         name: ci-${{ matrix.os }}
         path: ./reports
-  mirror:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Push image
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        registry: ${{ secrets.DOCKER_REGISTRY }}
-        repository: stardustdl/judge0
-        tags: latest
-        dockerfile: ./docker/Dockerfile
   invoke-cd:
     needs: ci
     runs-on: ubuntu-latest

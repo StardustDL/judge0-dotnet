@@ -16,4 +16,9 @@
     <Product>Judge0</Product>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http.Json" Version="3.2.1" />
+  </ItemGroup>
+
+
 </Project>

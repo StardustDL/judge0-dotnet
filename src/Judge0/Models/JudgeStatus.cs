@@ -1,4 +1,4 @@
-﻿namespace Judge0
+﻿namespace Judge0.Models
 {
     public class JudgeStatus
     {

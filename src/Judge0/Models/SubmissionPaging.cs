@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Judge0
+namespace Judge0.Models
 {
     public class SubmissionPaging
     {
