@@ -39,13 +39,19 @@ namespace Judge0.Models
             {
                 result.Result = JsonSerializer.Deserialize<T>(result.Raw);
             }
-            catch { }
+            catch
+            {
+
+            }
             try
             {
                 var error = JsonSerializer.Deserialize<ErrorResult>(result.Raw);
                 result.Error = error.error;
             }
-            catch { }
+            catch
+            {
+
+            }
             return result;
         }
 

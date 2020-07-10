@@ -6,9 +6,9 @@ namespace Judge0.Models
 
     public class Submission
     {
-        public string source_code { get; set; } = string.Empty;
+        public string? source_code { get; set; }
 
-        public int language_id { get; set; }
+        public int? language_id { get; set; }
 
         public string? compiler_options { get; set; }
 
@@ -18,13 +18,13 @@ namespace Judge0.Models
 
         public string? expected_output { get; set; }
 
-        public double? cpu_time_limit { get; set; }
+        public string? cpu_time_limit { get; set; }
 
-        public double? cpu_extra_time { get; set; }
+        public string? cpu_extra_time { get; set; }
 
-        public double? wall_time_limit { get; set; }
+        public string? wall_time_limit { get; set; }
 
-        public double? memory_limit { get; set; }
+        public string? memory_limit { get; set; }
 
         public int? stack_limit { get; set; }
 
@@ -44,30 +44,30 @@ namespace Judge0.Models
 
         public string? callback_url { get; set; }
 
-        public string stdout { get; set; } = string.Empty;
+        public string? stdout { get; set; }
 
-        public string stderr { get; set; } = string.Empty;
+        public string? stderr { get; set; }
 
-        public string compile_output { get; set; } = string.Empty;
+        public string? compile_output { get; set; }
 
-        public string message { get; set; } = string.Empty;
+        public string? message { get; set; }
 
-        public int exit_code { get; set; }
+        public int? exit_code { get; set; }
 
-        public int exit_signal { get; set; }
+        public int? exit_signal { get; set; }
 
-        public DateTimeOffset created_at { get; set; }
+        public string? created_at { get; set; }
 
-        public DateTimeOffset? finished_at { get; set; }
+        public string? finished_at { get; set; }
 
-        public string token { get; set; } = string.Empty;
+        public string? token { get; set; }
 
-        public double time { get; set; }
+        public string? time { get; set; }
 
-        public double wall_time { get; set; }
+        public string? wall_time { get; set; }
 
-        public double memory { get; set; }
+        public double? memory { get; set; }
 
-        public JudgeStatus status { get; set; } = new JudgeStatus();
+        public JudgeStatus? status { get; set; }
     }
 }

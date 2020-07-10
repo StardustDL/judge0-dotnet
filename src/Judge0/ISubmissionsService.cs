@@ -34,13 +34,13 @@ namespace Judge0
 
         public async Task<ResponseResult<Submission>> Create(Submission request, bool base64Encoded = false)
         {
-            var response = await Client.PostAsJsonAsync($"{PrepUrl}/?base64_encoded={base64Encoded}&wait=false", request).ConfigureAwait(false);
+            var response = await Client.PostAsJsonAsync($"{PrepUrl}/?base64_encoded={(base64Encoded ? "true" : "false")}&wait=false", request).ConfigureAwait(false);
             return await response.BuildResponseResult<Submission>().ConfigureAwait(false);
         }
 
         public async Task<ResponseResult<Submission>> CreateAndWait(Submission request, bool base64Encoded = false)
         {
-            var response = await Client.PostAsJsonAsync($"{PrepUrl}/?base64_encoded={base64Encoded}&wait=true", request).ConfigureAwait(false);
+            var response = await Client.PostAsJsonAsync($"{PrepUrl}/?base64_encoded={(base64Encoded ? "true" : "false")}&wait=true", request).ConfigureAwait(false);
             return await response.BuildResponseResult<Submission>().ConfigureAwait(false);
         }
 
@@ -52,13 +52,13 @@ namespace Judge0
 
         public async Task<ResponseResult<Submission>> Get(string token, bool base64Encoded = false, string fields = SubmissionsService.DefaultFields)
         {
-            var response = await Client.GetAsync($"{PrepUrl}/{token}?base64_encoded={base64Encoded}&fields={fields}").ConfigureAwait(false);
+            var response = await Client.GetAsync($"{PrepUrl}/{token}?base64_encoded={(base64Encoded ? "true" : "false")}&fields={fields}").ConfigureAwait(false);
             return await response.BuildResponseResult<Submission>().ConfigureAwait(false);
         }
 
         public async Task<ResponseResult<SubmissionPaging>> GetPaging(int page = 1, int perPage = 20, bool base64Encoded = false, string fields = SubmissionsService.DefaultFields)
         {
-            var response = await Client.GetAsync($"{PrepUrl}/?base64_encoded={base64Encoded}&fields={fields}&page={page}&per_page={perPage}").ConfigureAwait(false);
+            var response = await Client.GetAsync($"{PrepUrl}/?base64_encoded={(base64Encoded ? "true" : "false")}&fields={fields}&page={page}&per_page={perPage}").ConfigureAwait(false);
             return await response.BuildResponseResult<SubmissionPaging>().ConfigureAwait(false);
         }
     }
