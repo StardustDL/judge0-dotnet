@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Judge0
 {
     public interface ILanguagesService
     {
-        ResponseResult<IList<Language>> GetAll();
+        Task<ResponseResult<IList<Language>>> GetAll();
 
-        ResponseResult<IList<Language>> Get();
+        Task<ResponseResult<IList<Language>>> Get();
 
-        ResponseResult<Language> Get(int id);
+        Task<ResponseResult<Language>> Get(int id);
     }
 
     //TODO: System and Configuration, Statistics, Health Check

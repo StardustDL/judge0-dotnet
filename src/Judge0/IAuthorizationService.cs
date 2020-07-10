@@ -1,8 +1,10 @@
-﻿namespace Judge0
+﻿using System.Threading.Tasks;
+
+namespace Judge0
 {
     public interface IAuthorizationService
     {
-        ResponseResult<bool> Authorize(string token);
+        Task<ResponseResult<bool>> Authorize(string token);
     }
 
     //TODO: System and Configuration, Statistics, Health Check
