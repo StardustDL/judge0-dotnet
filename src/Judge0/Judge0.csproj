@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <Authors>StardustDL</Authors>
+    <Company>StardustDL</Company>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/StardustDL/judge0-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/StardustDL/judge0-dotnet</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageId>Judge0</PackageId>
+    <Product>Judge0</Product>
+  </PropertyGroup>
+
+</Project>
