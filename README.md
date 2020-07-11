@@ -11,7 +11,7 @@ Judge0 version supported status:
 - [x] 1.7.1
 - [x] 1.7.0
 - [x] 1.6.0
-- [x] 1.5.0
+- [x] 1.5.0 (partially)
 
 ## Install
 

@@ -17,8 +17,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        apiVersion: ["1.9.0", "1.8.0", "1.7.1", "1.7.0", "1.6.0", "1.5.0"]
+        apiVersion: ["1.9.0", "1.8.0", "1.7.1", "1.7.0", "1.6.0"]
+        experimental: [false]
+        include:
+          - apiVersion: "1.5.0"
+            experimental: true
     runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2

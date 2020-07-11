@@ -1,4 +1,5 @@
 ﻿using Judge0;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,12 +22,12 @@ namespace Test.Base
 
             if (authentication)
             {
-                await service.Authenticate("token");
+                Assert.IsTrue((await service.Authenticate("token")).Result);
             }
 
             if (authorization)
             {
-                await service.Authorize("user");
+                Assert.IsTrue((await service.Authorize("user")).Result);
             }
             return client;
         }
