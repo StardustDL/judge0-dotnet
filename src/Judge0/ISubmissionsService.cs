@@ -72,7 +72,7 @@ namespace Judge0
             });
         }
 
-        public async Task<ResponseResult<SubmissionBatch>> BatchGet(IList<string> tokens, string fields = SubmissionsService.DefaultFields)
+        public async Task<ResponseResult<SubmissionBatch>> BatchGet(IEnumerable<string> tokens, string fields = SubmissionsService.DefaultFields)
         {
             var response = await Client.GetAsync($"{PrepUrl}/batch?tokens={string.Join(',', tokens)}&base64_encoded=true&fields={fields}").ConfigureAwait(false);
             var result = await response.BuildResponseResult<SubmissionBatch>().ConfigureAwait(false);
