@@ -10,7 +10,7 @@ defaults:
 
 env:
   dotnet-version: "3.1.x"
-  build_version: "0.0.3"
+  build_version: "1.0.0"
 
 jobs:
   pub-pkgs:

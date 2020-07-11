@@ -10,7 +10,7 @@ defaults:
 
 env:
   dotnet-version: "3.1.x"
-  build_version: "0.0.3.${{ github.run_number }}-preview"
+  build_version: "1.0.0.${{ github.run_number }}-preview"
 
 jobs:
   ci:
@@ -18,12 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         apiVersion: ["1.9.0", "1.8.0", "1.7.1", "1.7.0", "1.6.0"]
-        experimental: [false]
-        include:
-          - apiVersion: "1.5.0"
-            experimental: true
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.experimental }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
