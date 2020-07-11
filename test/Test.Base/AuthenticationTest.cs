@@ -12,7 +12,7 @@ namespace Test.Base
         [TestInitialize]
         public async Task Setup()
         {
-            var client = await Utils.CreateTestClient(false);
+            var client = await Utils.CreateTestClient(false, false);
 
             Service = new AuthenticationService(client);
         }

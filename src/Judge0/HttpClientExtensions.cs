@@ -11,6 +11,7 @@ namespace Judge0
 {
     public static class HttpClientExtensions
     {
+        // default implement for PostAsJsonAsync with JsonContent will failed for Judge0, use StringContent instead.
         public static Task<HttpResponseMessage> PostAsJsonAsync<TValue>(this HttpClient client, string? requestUri, TValue value, JsonSerializerOptions? options = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (client == null)

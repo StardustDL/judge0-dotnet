@@ -10,16 +10,22 @@ namespace Test.Base
 {
     class Utils
     {
-        public static async Task<HttpClient> CreateTestClient(bool auth = true)
+        public static async Task<HttpClient> CreateTestClient(bool authentication = true, bool authorization = true)
         {
             var client = new HttpClient
             {
                 BaseAddress = new Uri("http://localhost:3000/")
             };
-            if (auth)
+            if (authentication)
             {
                 AuthenticationService service = new AuthenticationService(client);
                 await service.Authenticate("token");
+            }
+
+            if (authorization)
+            {
+                AuthorizationService service = new AuthorizationService(client);
+                await service.Authorize("user");
             }
             return client;
         }
