@@ -30,15 +30,9 @@ namespace Judge0
 
         public HttpClient Client { get; }
 
-        public async Task<ResponseResult<IList<JudgeStatus>>> Get()
-        {
-            var response = await Client.GetAsync("/system_info").ConfigureAwait(false);
-            return await response.BuildResponseResult<IList<JudgeStatus>>().ConfigureAwait(false);
-        }
-
         public async Task<ResponseResult<AboutInfo>> GetAbout()
         {
-            var response = await Client.GetAsync("/aboud").ConfigureAwait(false);
+            var response = await Client.GetAsync("/about").ConfigureAwait(false);
             return await response.BuildResponseResult<AboutInfo>().ConfigureAwait(false);
         }
 

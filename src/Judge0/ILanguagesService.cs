@@ -14,8 +14,6 @@ namespace Judge0
         Task<ResponseResult<Language>> Get(int id);
     }
 
-    //TODO: System and Configuration, Statistics, Health Check
-
     public class LanguagesService : ILanguagesService
     {
         const string PrepUrl = "/languages";

@@ -23,7 +23,7 @@ namespace Test.Base
             var result = await Service.Authenticate("token");
             Assert.IsTrue(result.IsSuccessStatusCode);
 
-            result = await Service.Authorize("token");
+            result = await Service.Authorize("user");
             Assert.IsTrue(result.IsSuccessStatusCode);
         }
 
