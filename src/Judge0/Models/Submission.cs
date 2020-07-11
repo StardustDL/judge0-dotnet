@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Text;
+using System.Text.Json;
 
 namespace Judge0.Models
 {
@@ -69,5 +71,45 @@ namespace Judge0.Models
         public double? memory { get; set; }
 
         public JudgeStatus? status { get; set; }
+
+        public Submission Base64Encode()
+        {
+            static string? ToBase64(string? value)
+            {
+                if (value is null)
+                    return null;
+                return Convert.ToBase64String(Encoding.UTF8.GetBytes(value));
+            }
+
+            Submission result = JsonSerializer.Deserialize<Submission>(JsonSerializer.Serialize(this));
+            result.stdin = ToBase64(result.stdin);
+            result.source_code = ToBase64(result.source_code);
+            result.expected_output = ToBase64(result.expected_output);
+            result.stdout = ToBase64(result.stdout);
+            result.stderr = ToBase64(result.stderr);
+            result.compile_output = ToBase64(result.compile_output);
+            result.message = ToBase64(result.message);
+            return result;
+        }
+
+        public Submission Base64Decode()
+        {
+            static string? FromBase64(string? value)
+            {
+                if (value is null)
+                    return null;
+                return Encoding.UTF8.GetString(Convert.FromBase64String(value));
+            }
+
+            Submission result = JsonSerializer.Deserialize<Submission>(JsonSerializer.Serialize(this));
+            result.stdin = FromBase64(result.stdin);
+            result.source_code = FromBase64(result.source_code);
+            result.expected_output = FromBase64(result.expected_output);
+            result.stdout = FromBase64(result.stdout);
+            result.stderr = FromBase64(result.stderr);
+            result.compile_output = FromBase64(result.compile_output);
+            result.message = FromBase64(result.message);
+            return result;
+        }
     }
 }
