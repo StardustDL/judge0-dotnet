@@ -5,22 +5,22 @@ using System.Threading.Tasks;
 namespace Test.Base
 {
     [TestClass]
-    public class StatusesTest
+    public class AuthenticationTest
     {
-        StatusesService Service { get; set; }
+        AuthenticationService Service { get; set; }
 
         [TestInitialize]
         public async Task Setup()
         {
-            var client = await Utils.CreateTestClient();
+            var client = await Utils.CreateTestClient(false);
 
-            Service = new StatusesService(client);
+            Service = new AuthenticationService(client);
         }
 
         [TestMethod]
-        public async Task Get()
+        public async Task Authenticate()
         {
-            var result = await Service.Get();
+            var result = await Service.Authenticate("token");
             Assert.IsTrue(result.IsSuccessStatusCode);
         }
 

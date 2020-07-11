@@ -10,9 +10,9 @@ namespace Test.Base
         LanguagesService Service { get; set; }
 
         [TestInitialize]
-        public void Setup()
+        public async Task Setup()
         {
-            var client = Utils.CreateTestClient();
+            var client = await Utils.CreateTestClient();
 
             Service = new LanguagesService(client);
         }

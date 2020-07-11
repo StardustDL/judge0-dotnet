@@ -5,22 +5,22 @@ using System.Threading.Tasks;
 namespace Test.Base
 {
     [TestClass]
-    public class StatusesTest
+    public class AuthorizationTest
     {
-        StatusesService Service { get; set; }
+        AuthorizationService Service { get; set; }
 
         [TestInitialize]
         public async Task Setup()
         {
             var client = await Utils.CreateTestClient();
 
-            Service = new StatusesService(client);
+            Service = new AuthorizationService(client);
         }
 
         [TestMethod]
-        public async Task Get()
+        public async Task Authorize()
         {
-            var result = await Service.Get();
+            var result = await Service.Authorize("user");
             Assert.IsTrue(result.IsSuccessStatusCode);
         }
 

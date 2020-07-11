@@ -18,6 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
+        apiVersion: ["1.9.0", "1.8.0"]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
@@ -28,6 +29,15 @@ jobs:
         dotnet-version: ${{ env.dotnet-version }}
     - name: Setup psake
       run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
+    - name: Start API Server
+      env:
+        VERSION: ${{ matrix.apiVersion }}
+      run: |
+        cd test/docker/$env:VERSION
+        docker-compose up -d db redis
+        sleep 10s
+        docker-compose up -d
+        sleep 5s
     - name: CI
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
