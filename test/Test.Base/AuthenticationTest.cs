@@ -18,9 +18,12 @@ namespace Test.Base
         }
 
         [TestMethod]
-        public async Task Authenticate()
+        public async Task AuthenticateAndAuthorize()
         {
             var result = await Service.Authenticate("token");
+            Assert.IsTrue(result.IsSuccessStatusCode);
+
+            result = await Service.Authorize("token");
             Assert.IsTrue(result.IsSuccessStatusCode);
         }
 

@@ -16,15 +16,16 @@ namespace Test.Base
             {
                 BaseAddress = new Uri("http://localhost:3000/")
             };
+
+            AuthenticationService service = new AuthenticationService(client);
+
             if (authentication)
             {
-                AuthenticationService service = new AuthenticationService(client);
                 await service.Authenticate("token");
             }
 
             if (authorization)
             {
-                AuthorizationService service = new AuthorizationService(client);
                 await service.Authorize("user");
             }
             return client;

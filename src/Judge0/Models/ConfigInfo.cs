@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Judge0.Models
 {
+
     public class ConfigInfo
     {
         public bool enable_wait_result { get; set; } = true;

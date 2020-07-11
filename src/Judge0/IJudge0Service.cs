@@ -8,8 +8,6 @@ namespace Judge0
     {
         IAuthenticationService AuthenticationService { get; }
 
-        IAuthorizationService AuthorizationService { get; }
-
         ISubmissionsService SubmissionsService { get; }
 
         ILanguagesService LanguagesService { get; }
@@ -25,7 +23,6 @@ namespace Judge0
         {
             Client = client;
             AuthenticationService = new AuthenticationService(client);
-            AuthorizationService = new AuthorizationService(client);
             SubmissionsService = new SubmissionsService(client);
             LanguagesService = new LanguagesService(client);
             StatusesService = new StatusesService(client);
@@ -35,8 +32,6 @@ namespace Judge0
         public HttpClient Client { get; }
 
         public IAuthenticationService AuthenticationService { get; }
-
-        public IAuthorizationService AuthorizationService { get; }
 
         public ISubmissionsService SubmissionsService { get; }
 
