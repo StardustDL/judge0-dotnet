@@ -15,9 +15,9 @@ namespace Judge0
         ILanguagesService LanguagesService { get; }
 
         IStatusesService StatusesService { get; }
-    }
 
-    //TODO: System and Configuration, Statistics, Health Check
+        ISystemService SystemService { get; }
+    }
 
     public class Judge0Service : IJudge0Service
     {
@@ -29,6 +29,7 @@ namespace Judge0
             SubmissionsService = new SubmissionsService(client);
             LanguagesService = new LanguagesService(client);
             StatusesService = new StatusesService(client);
+            SystemService = new SystemService(client);
         }
 
         public HttpClient Client { get; }
@@ -42,5 +43,7 @@ namespace Judge0
         public ILanguagesService LanguagesService { get; }
 
         public IStatusesService StatusesService { get; }
+
+        public ISystemService SystemService { get; }
     }
 }

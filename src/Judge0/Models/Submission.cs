@@ -5,7 +5,6 @@ using System.Text.Json;
 
 namespace Judge0.Models
 {
-
     public class Submission
     {
         public string? source_code { get; set; }

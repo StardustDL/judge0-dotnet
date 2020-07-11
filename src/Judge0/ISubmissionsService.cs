@@ -1,4 +1,6 @@
 ﻿using Judge0.Models;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -18,8 +20,6 @@ namespace Judge0
 
         Task<ResponseResult<Submission>> Delete(string token, string? fields = null);
     }
-
-    //TODO: System and Configuration, Statistics, Health Check
 
     public class SubmissionsService : ISubmissionsService
     {
@@ -70,6 +70,27 @@ namespace Judge0
                 meta = x.meta,
                 submissions = x.submissions.Select(x => x.Base64Decode()).ToArray()
             });
+        }
+
+        public async Task<ResponseResult<SubmissionBatch>> BatchGet(IList<string> tokens, string fields = SubmissionsService.DefaultFields)
+        {
+            var response = await Client.GetAsync($"{PrepUrl}/batch?tokens={string.Join(',', tokens)}&base64_encoded=true&fields={fields}").ConfigureAwait(false);
+            var result = await response.BuildResponseResult<SubmissionBatch>().ConfigureAwait(false);
+            return result.Map(x => new SubmissionBatch
+            {
+                submissions = x.submissions.Select(x => x.Base64Decode()).ToArray()
+            });
+        }
+
+        public async Task<ResponseResult<IList<Submission>>> BatchCreate(SubmissionBatch requests)
+        {
+            requests = new SubmissionBatch
+            {
+                submissions = requests.submissions.Select(x => x.Base64Encode()).ToArray()
+            };
+            var response = await Client.PostAsJsonAsync($"{PrepUrl}/batch?base64_encoded=true", requests).ConfigureAwait(false);
+            var result = await response.BuildResponseResult<IList<Submission>>().ConfigureAwait(false);
+            return result.Map(x => (IList<Submission>)x.Select(c => c.Base64Decode()).ToArray());
         }
     }
 }
