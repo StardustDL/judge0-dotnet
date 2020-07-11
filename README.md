@@ -4,7 +4,14 @@
 
 Client SDK for Judge0 RESTful API.
 
-- Tested Judge0 version: 1.18, 1.19
+Judge0 version supported status:
+
+- [x] 1.9.0
+- [x] 1.8.0
+- [x] 1.7.1
+- [x] 1.7.0
+- [x] 1.6.0
+- [x] 1.5.0
 
 ## Install
 
