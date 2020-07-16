@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Judge0.Models
@@ -30,7 +31,7 @@ namespace Judge0.Models
 
     public static class ResponseResultExtensions
     {
-        public static async Task<ResponseResult<T>> BuildResponseResult<T>(this HttpResponseMessage response)
+        public static async Task<ResponseResult<T>> BuildResponseResult<T>(this HttpResponseMessage response, CancellationToken cancellationToken = default)
         {
             var result = new ResponseResult<T>();
             result.StatusCode = response.StatusCode;

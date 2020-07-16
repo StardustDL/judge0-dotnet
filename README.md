@@ -1,6 +1,6 @@
 # judge0-dotnet
 
-![CI](https://github.com/StardustDL/judge0-dotnet/workflows/CI/badge.svg) ![CD](https://github.com/StardustDL/judge0-dotnet/workflows/CD/badge.svg) ![License](https://img.shields.io/github/license/StardustDL/judge0-dotnet.svg) ![downloads](https://img.shields.io/nuget/dt/Judge0)
+![CI](https://github.com/StardustDL/judge0-dotnet/workflows/CI/badge.svg) ![CD](https://github.com/StardustDL/judge0-dotnet/workflows/CD/badge.svg) ![License](https://img.shields.io/github/license/StardustDL/judge0-dotnet.svg) [![Judge0](https://buildstats.info/nuget/Judge0)](https://www.nuget.org/packages/Judge0/)
 
 Client SDK for [Judge0](https://github.com/judge0/api) RESTful API.
 
@@ -220,3 +220,7 @@ public async Task GetVersion()
     Assert.IsTrue(result.IsSuccessStatusCode);
 }
 ```
+
+## Status
+
+![](https://buildstats.info/github/chart/StardustDL/judge0-dotnet?branch=master)
